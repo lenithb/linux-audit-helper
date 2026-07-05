@@ -6,7 +6,7 @@ export function parseGroups(rawText) {
   }
 
   // a veces el comando devuelve "usuario : grupo1 grupo2", quitamos esa parte
-  const cleaned = rawText.trim().split(":").pop();
+  const cleaned = rawText.trim().split(':').pop();
   const groups = cleaned
     .split(/\s+/)
     .map((g) => g.trim())

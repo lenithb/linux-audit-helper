@@ -5,10 +5,7 @@ export function parseDisk(rawText) {
     return { volumes: [] };
   }
 
-  const lines = rawText
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
+  const lines = rawText.split('\n').map((l) => l.trim()).filter(Boolean);
   const volumes = [];
 
   for (const line of lines) {
@@ -19,7 +16,7 @@ export function parseDisk(rawText) {
     if (parts.length < 6) continue;
 
     const [filesystem, size, used, avail, usePercent, ...mountParts] = parts;
-    const percentNumber = parseInt(usePercent.replace("%", ""), 10);
+    const percentNumber = parseInt(usePercent.replace('%', ''), 10);
 
     volumes.push({
       filesystem,
@@ -28,8 +25,8 @@ export function parseDisk(rawText) {
       available: avail,
       usePercent: usePercent,
       usePercentNumber: isNaN(percentNumber) ? 0 : percentNumber,
-      mountedOn: mountParts.join(" "),
-      warning: !isNaN(percentNumber) && percentNumber >= 80,
+      mountedOn: mountParts.join(' '),
+      warning: !isNaN(percentNumber) && percentNumber >= 80
     });
   }
 
