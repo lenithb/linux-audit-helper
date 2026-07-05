@@ -5,10 +5,7 @@ export function parsePermissions(rawText) {
     return { entries: [] };
   }
 
-  const lines = rawText
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
+  const lines = rawText.split('\n').map((l) => l.trim()).filter(Boolean);
   const entries = [];
 
   const permRegex = /^([dl\-])([rwx\-]{9})/;
@@ -27,10 +24,10 @@ export function parsePermissions(rawText) {
     const owner = parts[2];
     const group = parts[3];
     const size = parts[4];
-    const filename = parts.slice(8).join(" ");
+    const filename = parts.slice(8).join(' ');
 
     // el permiso de escritura para "otros" esta en la posicion 8 del string
-    const othersWrite = permissions[8] === "w";
+    const othersWrite = permissions[8] === 'w';
 
     entries.push({
       permissions,
@@ -38,7 +35,7 @@ export function parsePermissions(rawText) {
       group,
       size,
       filename,
-      worldWritable: othersWrite,
+      worldWritable: othersWrite
     });
   }
 

@@ -1,6 +1,7 @@
 {
   "name": "linux-audit-helper",
-  "version": "0.2.0",
+  "version": "1.0.0",
+  "description": "Panel educativo para analizar salidas de comandos Linux pegadas manualmente",
   "type": "module",
   "scripts": {
     "dev": "vite",

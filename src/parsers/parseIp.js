@@ -5,7 +5,7 @@ export function parseIp(rawText) {
     return { interfaces: [] };
   }
 
-  const lines = rawText.split("\n");
+  const lines = rawText.split('\n');
   const interfaces = [];
   let current = null;
 
@@ -18,12 +18,12 @@ export function parseIp(rawText) {
     if (headerMatch) {
       // nueva interfaz detectada, guardamos la anterior si existe
       if (current) interfaces.push(current);
-      const flags = headerMatch[3] || "";
+      const flags = headerMatch[3] || '';
       current = {
         name: headerMatch[1].trim(),
-        state: flags.includes("UP") ? "UP" : "DOWN",
+        state: flags.includes('UP') ? 'UP' : 'DOWN',
         ipv4: [],
-        ipv6: [],
+        ipv6: []
       };
       continue;
     }

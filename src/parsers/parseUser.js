@@ -2,9 +2,9 @@
 
 export function parseUser(rawText) {
   if (!rawText || !rawText.trim()) {
-    return { username: "" };
+    return { username: '' };
   }
 
-  const username = rawText.trim().split("\n")[0].trim();
+  const username = rawText.trim().split('\n')[0].trim();
   return { username };
 }
